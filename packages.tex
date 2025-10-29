@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ PACKAGE LISTING ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% USED TO SET TEMPORARY TEXT
+\usepackage{lipsum}
+
+% neater appendix
+\usepackage{appendix}
+
+% Nicer ragged edges
+\usepackage[document]{ragged2e}
+
+% better representation of figures
+\usepackage{graphicx}
+
+% language packages & linebreaking
+\usepackage[english]{babel}
+
+% Computer science style quotes
+\usepackage{csquotes}
+
+% Makes Natbib and hyperref work together
+\usepackage{hyphenat}
+
+% slightly different styling of abstract
+\usepackage{bookabstract}
+
+% ADJUSTABLE BOXES
+\usepackage{adjustbox}
+
+% FOR USING LANDSCAPE PAGES
+\usepackage{lscape}
+
+
+% Filling out the text
+\usepackage[parfill]{parskip}
+\setlength\parskip{.5\baselineskip plus .1\baselineskip minus .1\baselineskip}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ GEOMETRY STYLE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% SET PAGE MARGINS
+\usepackage[top=30mm, bottom=30mm, inner=35mm, outer=35mm, headsep=10mm, footskip=12mm]{geometry}
+
+% INCREASES THE SPACE BETWEEN LINES, EASIER READABILITY
+\usepackage{setspace}
+\setstretch{1.4}
+
+
+% SET MAXIMUM DEPTH OF TOC AND SECTIONS
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{1}
+
+% SET SPACE BETWEEN TEXT AND FOOTNOTES
+\setlength{\skip\footins}{8mm}
+
+% SET PARAGRAPH INDENT
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2mm}
+
+% This removes the forced empty pages
+\let\cleardoublepage\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ HEADER STYLING ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addtolength{\headheight}{3pt}
+\usepackage{fancyhdr}
+\pagestyle{fancy}% <- must be used before the redefinition of \chaptermark and \sectionmark
+% change the marks set by \chapter and \section
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% change fancy style
+\fancypagestyle{fancy}{%
+\fancyhf{}
+\fancyhead[LE]{\nouppercase{\leftmark}}
+\fancyhead[RO]{\nouppercase{\rightmark}}
+\fancyfoot[RE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+}
+
+% change plain style
+\fancypagestyle{plain}{%
+\fancyhf{}
+% \fancyhead[LE]{\nouppercase{\leftmark}}
+% \fancyhead[RO]{\nouppercase{\rightmark}}
+\fancyfoot[RE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+% PAGESTYLE IN TOC
+\fancypagestyle{toc}{%
+  \fancyhf{}
+  \fancyfoot[RE,RO]{\thepage}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ BIBLIOGRAPHY STYLE CHOICES ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% BIBLIOGRAPHY STYLE 
+\usepackage[
+    backend=biber,
+    style=ieee,
+    sorting=none,
+  ]{biblatex}
+\addbibresource{bibliography.bib}
+
+% MANAGE LONG BIBLIOGRAPHY URL
+\setcounter{biburlnumpenalty}{9000}
+\setcounter{biburlucpenalty}{9000}
+\setcounter{biburllcpenalty}{9000}
+
+
+% SET CHAPTER APPEARENCE (ADD NUMBER NEXT TO THE CHAPTER, MARGIN...)
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\LARGE\bfseries}{\thechapter{. }}{0pt}{\LARGE\bfseries}
+\titlespacing*{\chapter}{0pt}{-5pt}{40pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ FIGURE CAPTION STYLE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enables controlling the look and feel of captions, see package documentation
+\usepackage[font=small, labelfont=bf, margin=0.3cm]{caption}        
+
+% Recommended when making sub-figures
+\usepackage{subcaption}     
+
+% Easily insert sources in images
+\newcommand{\source}[1]{\vspace{-4pt} \caption*{\hfill \footnotesize{Source: {#1}} } }   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ HYPERLINK STYLE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Change hyperref colors
+\usepackage[pdfpagelabels=true]{hyperref}
+\hypersetup{
+pdftitle={Thesis title},
+pdfsubject={MasteR thesis},
+pdfauthor={Author name},
+pdfkeywords={keyword1, keyword2, keyword3}
+}
+
+% Change hyperlink colors
+\usepackage{xcolor}
+\definecolor{blulink}{HTML}{0F4ACD}
+\definecolor{redcite}{HTML}{E34D51}
+\hypersetup{
+    colorlinks,
+    linkcolor={black}, % CHANGE COLOR IF NEEDED
+    citecolor={black}, % CHANGE COLOR IF NEEDED
+    urlcolor={black}  % CHANGE COLOR IF NEEDED
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ MATHEMATICAL STYLE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Makes math appear bold
+\usepackage{bm}         
+
+% Add math options and tools
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+% Extended symbol collection
+\usepackage{amssymb}    
+
+% Helps define theorem-like structures
+\usepackage{amsthm}     
+
+% Used in the package "gensymb" (below), which will give warnings if "textcomp" is not imported in advance
+\usepackage{textcomp}   
+
+% Adds extra generic symbols for math and text mode, e.g. \degree
+\usepackage{gensymb}    
+
+
+
+% Set space above and below a math enviroment
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{8mm}
+  \setlength\belowdisplayskip{8mm}
+  \setlength\abovedisplayshortskip{6mm}
+  \setlength\belowdisplayshortskip{6mm}
+}
+\makeatother
+
+% Nicer math usage
+\usepackage{siunitx}
+\sisetup{exponent-product=\ensuremath{{}\cdot{}}}
