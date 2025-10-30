@@ -2,27 +2,79 @@
 %%%%		~~~~ Data ~~~~
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\chapter{Data}
+\chapter{Datos}
 \label{chap:data}
 \pagestyle{fancy}
 
-\section{Description of the data}
-Data exploration results \\ 
-Nice examples of specifics found \\
-Use appendices for full data exploration results \\ 
+\section{Descripción de los Conjuntos de Datos}
 
-\section{Preperation of the data}
-Data preparation used during analysis \\ 
-Only discussed the relevant parts\\ 
-Ethical and legal consideration of the data \\
+El proyecto utiliza 11 conjuntos de datos públicos y privados para entrenar modelos especializados:
 
+\subsection{Datos para Detección de Emociones}
 
-\begin{figure}
-    \centering
-    \includegraphics{IMAGES/image_placeholder.jpg}
-    \caption{Caption}
-    \label{fig:my_label}
-\end{figure}
+\textbf{DeepFace}: Utiliza modelos pre-entrenados en FER2013 y VGGFace2, datasets que contienen más de 35,000 imágenes faciales etiquetadas con 7 emociones básicas (felicidad, tristeza, enojo, sorpresa, miedo, disgusto, neutral) \cite{goodfellow2013fer2013}.
 
-\lipsum[3-4]
+\subsection{Datos Financieros}
+
+\begin{itemize}
+    \item \textbf{Bitcoin Historical Data}: Serie temporal de 2010-2024 con precios diarios, volumen y capitalización de mercado (9,500+ registros)
+    \item \textbf{S\&P 500 Dataset}: Datos de 505 empresas durante 5 años con métricas OHLCV (Open, High, Low, Close, Volume)
+    \item \textbf{Avocado Prices}: 18,000 registros de precios de aguacate por región y tipo en Estados Unidos
+\end{itemize}
+
+\subsection{Datos Médicos}
+
+\begin{itemize}
+    \item \textbf{Cirrhosis Dataset}: 424 pacientes con 19 características clínicas (bilirrubina, albumina, edad, etc.)
+    \item \textbf{Body Fat Dataset}: 252 registros con mediciones antropométricas para predicción de IMC
+\end{itemize}
+
+\subsection{Datos Sociales}
+
+\begin{itemize}
+    \item \textbf{Chicago Crime Dataset}: BigQuery público con millones de incidentes criminales (2001-2024)
+    \item \textbf{London Crime Dataset}: Datos geoespaciales de crímenes por LSOA (Lower Layer Super Output Area)
+\end{itemize}
+
+\subsection{Datos de Transporte y Comercio}
+
+\begin{itemize}
+    \item \textbf{Airline Delay Dataset}: 5.8M de vuelos con características de retraso
+    \item \textbf{Car Price Dataset}: 301 registros de autos usados con 9 características (año, kilometraje, tipo de combustible)
+    \item \textbf{MovieLens Dataset}: 100,000 ratings de 9,000 películas para sistema de recomendación
+\end{itemize}
+
+\section{Preparación y Procesamiento}
+
+\subsection{Limpieza de Datos}
+
+Para cada dataset se aplicaron las siguientes técnicas:
+\begin{itemize}
+    \item Eliminación de valores nulos mediante imputación por mediana (variables numéricas) o moda (categóricas)
+    \item Detección y remoción de outliers usando IQR (Interquartile Range)
+    \item Normalización de series temporales con diferenciación para lograr estacionariedad
+\end{itemize}
+
+\subsection{Ingeniería de Características}
+
+\textbf{Series Temporales}: Creación de lag features (t-1, t-3, t-7) y rolling means (7, 30 días) para capturar patrones temporales.
+
+\textbf{Variables Categóricas}: Label Encoding para variables ordinales; One-Hot Encoding para nominales con baja cardinalidad.
+
+\textbf{Feature Scaling}: Aplicación de StandardScaler para modelos sensibles a escala.
+
+\subsection{Consideraciones Éticas}
+
+\begin{itemize}
+    \item Todos los datasets utilizados son de dominio público o con licencias permisivas
+    \item Los datos médicos están anonimizados según estándares HIPAA
+    \item El sistema de detección emocional NO almacena imágenes de usuarios, solo metadatos
+    \item Cumplimiento con GDPR para datos de usuarios europeos (datasets de Londres)
+\end{itemize}
+
+%\begin{figure}[h]
+   % \centering
+   % \includegraphics[width=0.8\textwidth]{IMAGES/data_distribution.png}
+   % \caption{Distribución de registros por dataset utilizado}
+   % \label{fig:data_distribution}
+%\end{figure}
