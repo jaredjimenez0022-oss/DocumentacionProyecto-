@@ -25,28 +25,28 @@ Jarvis TEC implementa una arquitectura de microservicios basada en contenedores 
 \textbf{Arquitectura}: Red Neuronal Convolucional (CNN) basada en VGG-Face \\
 \textbf{Input}: Imagen RGB de 224x224 píxeles \\
 \textbf{Output}: 7 clases de emociones con scores probabilísticos \\
-\textbf{Justificación}: DeepFace utiliza transfer learning desde VGGFace2 (3.31M imágenes), logrando F1-score de 0.85 en FER2013 \cite{serengil2020deepface}.
+\textbf{Justificación}: DeepFace utiliza transfer learning desde VGGFace2 (3.31M imágenes), logrando F1-score de 0.85 en FER2013.
 
 \subsection{2. Predicción de Bitcoin (Random Forest Regressor)}
 
 \textbf{Algoritmo}: Random Forest con 100 árboles, max\_depth=10 \\
 \textbf{Features}: Lags (1, 2, 3, 7 días), rolling means (7, 30 días), horizonte de predicción \\
 \textbf{Métricas}: MAE=\$2,450, R²=0.78 \\
-\textbf{Justificación}: Random Forest maneja efectivamente la no-linealidad de series temporales financieras y es robusto ante outliers causados por volatilidad \cite{breiman2001random}.
+\textbf{Justificación}: Random Forest maneja efectivamente la no-linealidad de series temporales financieras y es robusto ante outliers causados por volatilidad.
 
 \subsection{3. Predicción de Precios de Autos (Gradient Boosting)}
 
 \textbf{Algoritmo}: Gradient Boosting Regressor (100 estimadores, max\_depth=5) \\
 \textbf{Features}: Año, kilometraje, precio actual, tipo combustible, transmisión, dueños previos \\
 \textbf{Métricas}: MAE=\$1,200, R²=0.82 \\
-\textbf{Justificación}: Gradient Boosting optimiza secuencialmente errores residuales, ideal para features heterogéneas \cite{friedman2001greedy}.
+\textbf{Justificación}: Gradient Boosting optimiza secuencialmente errores residuales, ideal para features heterogéneas.
 
 \subsection{4. Sistema de Recomendación de Películas}
 
 \textbf{Enfoque}: Content-based filtering + Popularity scoring \\
 \textbf{Scoring}: $score = \text{rating\_mean} \times \log_{10}(\text{count} + 1)$ \\
 \textbf{Features}: Género, año, rating promedio, número de votantes \\
-\textbf{Justificación}: Híbrido que evita cold-start problem de collaborative filtering \cite{ricci2011recommender}.
+\textbf{Justificación}: Híbrido que evita cold-start problem de collaborative filtering.
 
 \subsection{5-6. Predicción de Crímenes Urbanos (Chicago y Londres)}
 
@@ -54,7 +54,7 @@ Jarvis TEC implementa una arquitectura de microservicios basada en contenedores 
 \textbf{Features}: Día de la semana, mes, área geográfica (encoded), densidad poblacional \\
 \textbf{Métricas Chicago}: MAE=45 crímenes/día, R²=0.72 \\
 \textbf{Métricas Londres}: MAE=12 crímenes/día, R²=0.68 \\
-\textbf{Justificación}: Modelos ensemble capturan patrones temporales y espaciales complejos en datos criminológicos \cite{mohler2015crime}.
+\textbf{Justificación}: Modelos ensemble capturan patrones temporales y espaciales complejos en datos criminológicos.
 
 \subsection{7-8. Modelos Financieros (S\&P 500, Aguacate)}
 
@@ -68,14 +68,14 @@ Jarvis TEC implementa una arquitectura de microservicios basada en contenedores 
 \textbf{Algoritmo}: Random Forest Regressor (50 estimadores) \\
 \textbf{Features}: Altura, peso, edad \\
 \textbf{Métricas}: MAE=2.3\%, R²=0.88 \\
-\textbf{Justificación}: Relación no-lineal entre antropometría y grasa corporal requiere modelos no paramétricos \cite{deurenberg1991body}.
+\textbf{Justificación}: Relación no-lineal entre antropometría y grasa corporal requiere modelos no paramétricos.
 
 \subsection{10. Clasificación de Cirrosis Hepática}
 
 \textbf{Algoritmo}: Random Forest Classifier (100 árboles) \\
 \textbf{Features}: 19 características clínicas (bilirrubina, albumina, cobre, AST, plaquetas, etc.) \\
 \textbf{Métricas}: Accuracy=0.83, F1-score=0.81 \\
-\textbf{Justificación}: Manejo efectivo de features médicos con missing values e interacciones complejas \cite{caruana2006empirical}.
+\textbf{Justificación}: Manejo efectivo de features médicos con missing values e interacciones complejas .
 
 \subsection{11. Predicción de Retrasos de Vuelos}
 
@@ -108,9 +108,9 @@ Jarvis TEC implementa una arquitectura de microservicios basada en contenedores 
     \item Frontend visualiza resultados en tiempo real
 \end{enumerate}
 
-%\begin{figure}[h]
- %   \centering
- %   \includegraphics[width=0.9\textwidth]{IMAGES/architecture_diagram.png}
-   % \caption{Arquitectura de microservicios de Jarvis TEC}
-  %  \label{fig:architecture}
-%\end{figure}
+\begin{figure}[h]
+    \centering
+   \includegraphics[width=0.9\textwidth]{IMAGES/anexo1.PNG}
+    \caption{Arquitectura de microservicios de Jarvis TEC}
+   \label{fig:architecture}
+\end{figure}
